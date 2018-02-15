@@ -51,12 +51,13 @@ live_loop :guit do
   # chords = ring((guitar :a, :m), (guitar :c, :M), (guitar :d, :M), (ring :r, :r, 53, 57, 60, 65),
   #              (guitar :a, :m), (guitar :c, :M), (guitar :e, :M), (guitar :e, '7'))
   # chords = ring((guitar :c, :M), (guitar :a, :m), (guitar :d, :m), (guitar :g, :'7'))
-  chords = ring((guitar :g, :M), (guitar :b, :m), (guitar :c, :M), (guitar :g, :M), (guitar :c, :M), (guitar :g, :M), (guitar :d, :M), (guitar :e, :m))
+  # chords = ring((guitar :g, :M), (guitar :b, :m), (guitar :c, :M), (guitar :g, :M), (guitar :c, :M), (guitar :g, :M), (guitar :d, :M), (guitar :e, :m))
+  chords = ring((guitar :c, :M), (guitar :d, :M), (guitar :e, :m), (guitar :e, :m), (guitar :c, :M), (guitar :g, :M), (guitar :d, :M), (guitar :g, :M))
   with_fx :reverb do
     with_fx :lpf, cutoff: 115 do
       with_synth :pluck do
         tick
-        "D.DU.UDU".split(//).each do |s|
+        "D.D.D.D.".split(//).each do |s|
           if s == 'D' # Down stroke
             strum chords.look, 0.05
           elsif s == 'U' # Up stroke
