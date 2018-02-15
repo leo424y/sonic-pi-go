@@ -15,6 +15,8 @@ end
 
 ukulele = [:g, :c, :e, :a]
 guitar_standard = [:e2, :a2, :d3, :g3, :b3, :e4]
+guitar_double = [:e2, :a2, :d3, :g3, :b3, :e4, :e5, :a5, :d6, :g6, :b6, :e7]
+guitar_base = [:e1, :a1, :d2, :g2, :b2, :e3, :e2, :a2, :d3, :g3, :b3, :e4]
 
 # Return ring representing the chord chrd, as played on a guitar with given tuning
 define :guitar do |tonic, name, tuning=guitar_standard|
@@ -44,10 +46,12 @@ use_debug false
 use_bpm 120
 
 live_loop :guit do
-  chords = ring((guitar :d, :m7), (guitar :g, '7'), (guitar :c, :M7), (guitar :f, :M7),
-                (guitar :b, :m7), (guitar :e, '7'), (guitar :a, :m7))
-  ##| chords = ring((guitar :a, :m), (guitar :c, :M), (guitar :d, :M), (ring :r, :r, 53, 57, 60, 65),
-  ##|               (guitar :a, :m), (guitar :c, :M), (guitar :e, :M), (guitar :e, '7'))
+  # chords = ring((guitar :d, :m7), (guitar :g, '7'), (guitar :c, :M7), (guitar :f, :M7),
+  #               (guitar :b, :m7), (guitar :e, '7'), (guitar :a, :m7))
+  # chords = ring((guitar :a, :m), (guitar :c, :M), (guitar :d, :M), (ring :r, :r, 53, 57, 60, 65),
+  #              (guitar :a, :m), (guitar :c, :M), (guitar :e, :M), (guitar :e, '7'))
+  # chords = ring((guitar :c, :M), (guitar :a, :m), (guitar :d, :m), (guitar :g, :'7'))
+  chords = ring((guitar :g, :M), (guitar :b, :m), (guitar :c, :M), (guitar :g, :M), (guitar :c, :M), (guitar :g, :M), (guitar :d, :M), (guitar :e, :m))
   with_fx :reverb do
     with_fx :lpf, cutoff: 115 do
       with_synth :pluck do
@@ -56,9 +60,10 @@ live_loop :guit do
           if s == 'D' # Down stroke
             strum chords.look, 0.05
           elsif s == 'U' # Up stroke
-            with_fx :level, amp: 0.5 do
-              strum chords.look.reverse, 0.03
-            end
+            strum chords.look.reverse, 0.03
+            # with_fx :level, amp: 0.5 do
+            #   strum chords.look.reverse, 0.03
+            # end
           end
           sleep 0.5
         end
