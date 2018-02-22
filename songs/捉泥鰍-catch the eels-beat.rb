@@ -3,22 +3,16 @@
 # install http://sonic-pi.net
 use_bpm 60*10
 
-s = 1.0 / 4 #s is speed multiplier 1.0 / 8 makes crotchet 1s or 60 crotchets/minute the default bpm
+s = 1.0 / 8 #s is speed multiplier 1.0 / 8 makes crotchet 1s or 60 crotchets/minute the default bpm
 #note use of 1.0 to make the variable floating point and not integer
-dsq = 1 * s #demi-semi-quaver
-sq = 2 * s #semi-quaver
-sqd = 3 * s #semi-quaver dotted
-q = 4 * s #quaver
-qd = 6 * s #quaver dotted
-qdd = 7 * s #quaver double dotted
-c = 8 * s #crotchet
-cd = 12 * s #crotchet dotted
-cdd = 14 * s #crotchet double dotted
-m = 16 * s #minim
-md = 24 * s #minim dotted
-mdd = 28 * s #minim double dotted
-b = 32 * s #brevea
-bd = 48 * s #breve dotted
+s = 2 * s #semi-quaver
+c = 4 * s #quaver
+cs = 6 * s #quaver dotted
+o = 8 * s #crotchet
+oc = 12 * s #crotchet dotted
+oo = 16 * s #minim
+ooo = 24 * s #minim dotted
+oooo = 32 * s #brevea
 
 use_synth :dsaw #default
 
@@ -31,11 +25,11 @@ o6 = [:a,:a,:a,:a,:g,:a]
 o7 = [:c5,:c5,:c5,:b,:g]
 o8 = [:a,:a,:a,:a,:g,:a,:g,:e]
 
-x1 = [m, cd, q, c, c, m]
-x2 = [c, c, c, c, b]
-x3 = [c, q, q, c, c, b]
-x4 = [m, c, c, m, m]
-x5 = [c, q, q, c, c, cd, q, m]
+x1 = [oo, oc, c, o, o, oo]
+x2 = [o, o, o, o, oooo]
+x3 = [o, c, c, o, o, oooo]
+x4 = [oo, o, o, oo, oo]
+x5 = [o, c, c, o, o, oc, c, oo]
 
 in_thread do #play the various parts together using threads
 2.times do
