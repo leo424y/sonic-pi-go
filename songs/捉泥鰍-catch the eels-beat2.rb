@@ -25,10 +25,10 @@ o6 = [:a,:a,:a,:a,:g,:a]
 o7 = [:c5,:c5,:c5,:b,:g]
 o8 = [:a,:a,:a,:a,:g,:a,:g,:e]
 
-x1 = [oooo  ,ooo,o,oo,oo,oooo]
-x2 = [oo,oo ,oo,oo,oooooooo  ]
-x3 = [oo,o,o,oo,oo,oooooooo  ]
-x4 = [oooo  ,oo,oo,oooo,oooo ]
+x1 = [ oooo ,ooo,o,oo,oo,oooo]
+x2 = [ oo,oo,oo,oo, oooooooo ]
+x3 = [oo,o,o,oo,oo, oooooooo ]
+x4 = [ oooo ,oo,oo,oooo, oooo]
 x5 = [oo,o,o,oo,oo,ooo,o,oooo]
 
 in_thread do #play the various parts together using threads
