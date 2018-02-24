@@ -8,10 +8,10 @@ in_thread(name: :drum_machine) do
 end
 
 drum_kits = {
-    hat2: :drum_cymbal_soft,
-    hat: :drum_cymbal_pedal,
-    snare: :drum_snare_hard,
-    kick:  :drum_tom_lo_hard,
+  hat2: :drum_cymbal_soft,
+  hat: :drum_cymbal_pedal,
+  snare: :drum_snare_hard,
+  kick:  :drum_tom_lo_hard,
 }
 
 define :run_pattern do |name, pattern|
