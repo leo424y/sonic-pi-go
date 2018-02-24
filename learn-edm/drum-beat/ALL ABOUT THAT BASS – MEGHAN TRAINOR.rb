@@ -1,7 +1,5 @@
 def say(x) x.delete(' ').split('').map{|s| s.to_i} end
-
-
-use_bpm 139
+use_bpm 134
 
 in_thread(name: :drum_machine) do
   snare say '0090 0090 0099 0090'
