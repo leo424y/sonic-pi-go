@@ -1,3 +1,6 @@
+def say(x) x.delete(' ').split('').map{|s| s.to_i} end
+
+
 use_bpm 139
 
 in_thread(name: :drum_machine) do
@@ -21,7 +24,3 @@ define :run_pattern do |name, pattern|
   end
 end
 [:hat, :kick, :snare].each { |x| define x { |pattern| run_pattern x, pattern } }
-
-def say(x)
-  x.delete(' ').split('').map{|s| s.to_i}
-end
