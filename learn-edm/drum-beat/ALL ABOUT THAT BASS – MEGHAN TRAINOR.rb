@@ -1,8 +1,8 @@
 use_bpm 139
 
 in_thread(name: :drum_machine) do
-  snare '0090 0090 0099 0090'.delete(' ').split('').map{|s| s.to_i}
-  kick  '9000 0909 9000 9909'.delete(' ').split('').map{|s| s.to_i}
+  snare say '0090 0090 0099 0090'
+  kick  say '9000 0909 9000 9909'
 end
 
 drum_kits = {
@@ -21,3 +21,7 @@ define :run_pattern do |name, pattern|
   end
 end
 [:hat, :kick, :snare].each { |x| define x { |pattern| run_pattern x, pattern } }
+
+def say(x)
+  x.delete(' ').split('').map{|s| s.to_i}
+end
