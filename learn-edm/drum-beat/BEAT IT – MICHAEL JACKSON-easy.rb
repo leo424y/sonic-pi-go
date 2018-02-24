@@ -13,12 +13,11 @@ drum_kits = {
     kick:  :drum_heavy_kick,
   },
 }
-current_drum_kit = drum_kits[:default]
 
 define :run_pattern do |name, pattern|
   live_loop name do
     pattern.each do |p|
-      sample current_drum_kit[name], amp: p/9.0
+      sample drum_kits[:default][name], amp: p/9.0
       sleep 0.5
     end
   end
